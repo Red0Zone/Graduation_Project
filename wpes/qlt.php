@@ -1,0 +1,23 @@
+<?php
+include("includes/var.php");
+include("includes/config.php");
+include("includes/function.php");
+getpermbyusername($user);
+$level=$_SESSION['level'];
+$pro=$_GET['pro'];
+include('includes/head.php');
+include("includes/heading.php");
+if($level==5){
+include('includes/qltshow.php');    
+}
+elseif($level==2){
+    include('includes/qltview_tester.php');
+}
+elseif($level>5){
+      echo'<meta http-equiv="refresh" content="0; url=main.php">';    
+}
+else{
+    include('includes/qltview.php');    
+}
+include('includes/foot.php');
+?>

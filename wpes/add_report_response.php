@@ -1,0 +1,39 @@
+<?php
+include("includes/var.php");
+include("includes/config.php");
+include("includes/function.php");
+$dom=$_POST['dom'];
+$pro=$_POST['pro'];
+$ind=$_POST['ind'];
+$result=$_POST['text'];
+$weak=$_POST['weak'];
+$strng=$_POST['strng'];
+$impstrng=$_POST['impstrng'];
+$impweak=$_POST['impweak'];
+$statment=mysql_query("INSERT INTO `report_result`
+(`ind`,
+`domain`,
+`program`,
+`result`,
+`weak`,
+`improve_weak`,
+`power`,
+`improve_power`)
+VALUES
+(
+'$ind',
+'$dom',
+'$pro',
+'$result',
+'$weak',
+'$impweak',
+'$strng',
+'$impstrng'
+)");
+ if($statment){
+     echo("<script>window.close();</script>");
+ }
+ else{
+    echo mysql_error();
+ }
+?>
